@@ -4,6 +4,8 @@ angular.module('finalProject')
 Router.$inject = ['$stateProvider', '$urlRouterProvider'];
 function Router($stateProvider, $urlRouterProvider ) {
   $stateProvider
+
+  //USER  REGISTER AND LOGIN ROUTES
   .state('usersIndex', {
     url: '/users',
     templateUrl: '/templates/usersIndex.html',
@@ -29,10 +31,29 @@ function Router($stateProvider, $urlRouterProvider ) {
     templateUrl: '/templates/usersEdit.html',
     controller: 'UsersEditController as usersEdit'
   })
+
+  //TRACKS ROUTES
+  .state('tracksIndex', {
+    url: '/tracks',
+    templateUrl: '/templates/tracksIndex.html',
+    controller: 'TracksIndexController as tracksIndex'
+  })
+  .state('tracksShow', {
+    url: '/tracks/:id',
+    templateUrl: '/templates/tracksShow.html',
+    controller: 'TracksShowController as tracksShow'
+  })
+  .state('tracksEdit', {
+    url: '/tracks/:id/edit',
+    templateUrl: '/templates/tracksEdit.html',
+    controller: 'TracksEditController as tracksEdit'
+  })
+
+  //OTHER ROUTES
   .state('about', {
     url: '/about',
     templateUrl: '/templates/about.html'
   });
 
-  $urlRouterProvider.otherwise('/users');
+  $urlRouterProvider.otherwise('/tracks');
 }

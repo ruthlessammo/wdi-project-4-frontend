@@ -1,0 +1,11 @@
+<section>
+  <ul>
+    <li ng-repeat="track in tracksShow">
+      <h2>{{ track.title }}</h2>
+      <h4>{{ track.artist }}</h4>
+      <h4>{{ track.url }}</h4>
+    </li>
+  </ul>
+  <!-- <a ng-if="usersShow.isLoggedIn()" ui-sref="usersEdit({ id: usersShow.user.id })" class="button">Edit</a>
+  <button ng-if="usersShow.isLoggedIn()" ng-click="usersShow.delete()">Delete</button> -->
+</section>
