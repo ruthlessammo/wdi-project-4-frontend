@@ -1,9 +1,9 @@
 <section>
   <ul>
-    <li ng-repeat="track in tracksShow">
-      <h2>{{ track.title }}</h2>
-      <h4>{{ track.artist }}</h4>
-      <iframe width="500" ng-src"{{track.url}}"></iframe>
+    <!-- <li ng-repeat="track in tracksShow"> -->
+      <h2>{{ tracksShow.track.title }}</h2>
+      <h4>{{ tracksShow.track.artist }}</h4>
+      <soundcloud link="{{tracksShow.track.embed_code}}"></soundcloud>
     </li>
   </ul>
   <a ng-if="tracksShow.isLoggedIn()" ui-sref="tracksEdit({ id: tracksShow.user.id })" class="button">Edit</a>
