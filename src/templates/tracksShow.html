@@ -3,9 +3,9 @@
     <li ng-repeat="track in tracksShow">
       <h2>{{ track.title }}</h2>
       <h4>{{ track.artist }}</h4>
-      <h4>{{ track.url }}</h4>
+      <iframe width="500" ng-src"{{track.url}}"></iframe>
     </li>
   </ul>
-  <!-- <a ng-if="usersShow.isLoggedIn()" ui-sref="usersEdit({ id: usersShow.user.id })" class="button">Edit</a>
-  <button ng-if="usersShow.isLoggedIn()" ng-click="usersShow.delete()">Delete</button> -->
+  <a ng-if="tracksShow.isLoggedIn()" ui-sref="tracksEdit({ id: tracksShow.user.id })" class="button">Edit</a>
+  <button ng-if="tracksShow.isLoggedIn()" ng-click="tracksShow.delete()">Delete</button>
 </section>

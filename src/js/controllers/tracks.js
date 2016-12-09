@@ -11,6 +11,21 @@ function TracksIndexController(Track) {
   tracksIndex.all = Track.query();
 }
 
+TracksNewController.$inject = ['Track', '$state'];
+function TracksNewController(Track, $state) {
+  const tracksNew = this;
+
+  tracksNew.track = {};
+
+  function create() {
+    Track.save(tracksNew.track, () => {
+      $state.go('tracksIndex');
+    });
+  }
+
+  tracksNew.create = create;
+}
+
 TracksShowController.$inject = ['Track', '$state', '$auth'];
 function TracksShowController(Track, $state, $auth) {
   const tracksShow = this;
