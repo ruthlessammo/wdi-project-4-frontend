@@ -1,14 +1,34 @@
 angular.module('finalProject')
-  .controller('TracksIndexController', TracksIndexController)
-  .controller('TracksShowController', TracksShowController)
-  .controller('TracksEditController', TracksEditController);
+.controller('TracksIndexController', TracksIndexController)
+.controller('TracksShowController', TracksShowController)
+.controller('TracksEditController', TracksEditController);
 
 
-TracksIndexController.$inject = ['Track'];
-function TracksIndexController(Track) {
+TracksIndexController.$inject = ['Track', '$state', '$auth', 'User'];
+function TracksIndexController(Track, $state, $auth, User) {
   const tracksIndex = this;
+  if($auth.isAuthenticated()) {
+    tracksIndex.currentUser = User.get({id: $auth.getPayload().id})
+  }
 
   tracksIndex.all = Track.query();
+  tracksIndex.addLike = addLike;
+
+  function addLike(track) {
+    const index = tracksIndex.currentUser.like_ids.indexOf(track.id);
+    if(index > -1) {
+      tracksIndex.currentUser.like_ids.splice(index, 1);
+      track.likes--;
+    } else {
+      tracksIndex.currentUser.like_ids.push(track.id);
+      track.likes++;
+    }
+    User.update({id: tracksIndex.currentUser.id}, tracksIndex.currentUser, (user) => {
+      const index = tracksIndex.all.indexOf(track);
+      tracksIndex.all[index].likes = track.likes;
+    });
+  }
+
 }
 
 TracksNewController.$inject = ['Track', '$state'];
@@ -26,9 +46,12 @@ function TracksNewController(Track, $state) {
   tracksNew.create = create;
 }
 
-TracksShowController.$inject = ['Track', '$state', 'Comment', '$auth'];
-function TracksShowController(Track, $state, Comment, $auth) {
+TracksShowController.$inject = ['Track', '$state', 'Comment', '$auth', 'User'];
+function TracksShowController(Track, $state, Comment, $auth, User) {
   const tracksShow = this;
+  if($auth.isAuthenticated()) {
+    tracksShow.currentUser = User.get({id: $auth.getPayload().id})
+  }
 
   tracksShow.track = Track.get($state.params);
 
@@ -43,6 +66,22 @@ function TracksShowController(Track, $state, Comment, $auth) {
   }
 
   tracksShow.createComment = createComment;
+
+  function addLike() {
+    const index = tracksShow.currentUser.like_ids.indexOf(tracksShow.track.id);
+    if(index > -1) {
+      tracksShow.currentUser.like_ids.splice(index, 1);
+      tracksShow.track.likes--;
+    } else {
+      tracksShow.currentUser.like_ids.push(tracksShow.track.id);
+      tracksShow.track.likes++;
+    }
+    User.update({id: tracksShow.currentUser.id}, tracksShow.currentUser, () => {
+    });
+  }
+
+
+  tracksShow.addLike = addLike;
 
   function deleteTrack() {
     tracksShow.track.$remove(() => {

@@ -2,23 +2,28 @@
   <h2>{{ tracksShow.track.title }}</h2>
   <h4>{{ tracksShow.track.artist }}</h4>
   <soundcloud id="{{ tracksShow.track.soundcloud_id }}" width="400px" height="300px" ng-if="tracksShow.track.soundcloud_id"></soundcloud>
-
-  <ul>
-    <li ng-repeat="comment in tracksShow.track.comments">
-      {{comment.body}}
-      <strong>{{ comment.user.username }}</strong>
-    </li>
-  </ul>
-
-  {{ tracksShow.newComment }}
-  <form ng-submit="tracksShow.createComment()" method="post">
-  <label for="body"></label>
-  <input type="text" name="body" placeholder="Comment here!" ng-model="tracksShow.newComment.body">
-  <button>Submit</button>
+  <form ng-submit="tracksShow.addLike()" method="post">
+    <input type="hidden" name="_method" value="put"/>
+    <label for="likes"></label>
+    <input type="hidden" name="likes" ng-model="tracksShow.track.likes">
+    <button>&#9829;</button>
   </form>
+  <h4><strong>Likes: </strong>{{ tracksShow.track.likes }}</h4>
 
-  <button>&#9829;</button>
-
+  <div class="">
+    <strong>Comments</strong>
+    <ul>
+      <li ng-repeat="comment in tracksShow.track.comments">
+        {{comment.body}}
+        <strong>{{ comment.user.username }}</strong>
+      </li>
+    </ul>
+  </div>
+  <form ng-submit="tracksShow.createComment()" method="post">
+    <label for="body"></label>
+    <input type="text" name="body" placeholder="Comment here!" ng-model="tracksShow.newComment.body">
+    <button>Submit</button>
+  </form>
 
 
   <a ng-if="tracksShow.isLoggedIn()" ui-sref="tracksEdit({ id: tracksShow.user.id })" class="button">Edit</a>

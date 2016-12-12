@@ -3,11 +3,17 @@
   <h1>Ruthless Track Index</h1>
   <div class="two column">
   <ul>
-    <li ng-repeat="track in tracksIndex.all">
+    <li ng-repeat="track in tracksIndex.all | orderBy: '-likes' ">
       <h2>{{ track.title }}</h2>
       <h4>{{ track.artist }}</h4>
       <soundcloud id="{{track.soundcloud_id}}" width="400px" height="300px"></soundcloud>
-      <button>&#9829;</button>
+      <h4><strong>Likes:</strong> {{ track.likes }}</h4>
+      <form ng-submit="tracksIndex.addLike(track)" method="post">
+        <input type="hidden" name="_method" value="put"/>
+        <label for="likes"></label>
+        <input type="hidden" name="likes" ng-model="tracksIndex.track.likes">
+        <button>&#9829;</button>
+      </form>
     </li>
   </ul>
   </div>
