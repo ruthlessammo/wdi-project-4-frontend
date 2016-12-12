@@ -4,9 +4,13 @@
   <soundcloud id="{{ tracksShow.track.soundcloud_id }}" width="400px" height="300px" ng-if="tracksShow.track.soundcloud_id"></soundcloud>
 
   <ul>
-    <!-- <li ng-repeat="comment in tracksShow.track.comments">{{track.comment.body}}</li> -->
+    <li ng-repeat="comment in tracksShow.track.comments">
+      {{comment.body}}
+      <strong>{{ comment.user.username }}</strong>
+    </li>
   </ul>
 
+  {{ tracksShow.newComment }}
   <form ng-submit="tracksShow.createComment()" method="post">
   <label for="body"></label>
   <input type="text" name="body" placeholder="Comment here!" ng-model="tracksShow.newComment.body">

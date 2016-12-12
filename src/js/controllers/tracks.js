@@ -26,15 +26,18 @@ function TracksNewController(Track, $state) {
   tracksNew.create = create;
 }
 
-TracksShowController.$inject = ['Track', '$state', '$auth'];
-function TracksShowController(Track, $state, $auth) {
+TracksShowController.$inject = ['Track', '$state', 'Comment', '$auth'];
+function TracksShowController(Track, $state, Comment, $auth) {
   const tracksShow = this;
 
   tracksShow.track = Track.get($state.params);
 
-  tracksShow.newComment = {};
+  tracksShow.newComment = {
+    track_id: $state.params.id
+  };
+
   function createComment() {
-    Track.save(tracksShow.newComment, () => {
+    Comment.save(tracksShow.newComment, () => {
       $state.reload();
     });
   }
