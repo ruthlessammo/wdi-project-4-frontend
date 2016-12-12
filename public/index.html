@@ -7,32 +7,23 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="js/vendor.js" charset="utf-8"></script>
   <script src="js/app.js" charset="utf-8"></script>
-
   <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
-  <!-- <script>
-  SC.initialize({
-    client_id: 'YOUR_CLIENT_ID'
-  });
-
-  var track_url = 'http://soundcloud.com/forss/flickermood';
-  SC.oEmbed(track_url, { auto_play: true }).then(function(oEmbed) {
-    console.log('oEmbed response: ', oEmbed);
-  });
-  </script> -->
 
 </head>
 <body ng-controller="MainController as main">
-  <nav class="nav">
-    <ul>
-      <li ui-sref="usersIndex">Home</li>
-      <li ui-sref="about">About</li>
-      <li ui-sref="usersIndex">Users</li>
-      <li ui-sref="tracksIndex">Tracks</li>
-      <li ng-if="!main.isLoggedIn()" ui-sref="login">Login</li>
-      <li ng-if="!main.isLoggedIn()" ui-sref="register">Register</li>
-      <li ng-if="main.isLoggedIn()" ui-sref="login" ng-click="main.logout()">Logout</li>
-    </ul>
+  <nav class='nav'>
+    <div class="wrapper">
+        <ul>
+          <li class="spacingNav" ui-sref="usersIndex">Home</li>
+          <li class="spacingNav" ui-sref="about">About</li>
+          <li class="spacingNav" ui-sref="usersIndex">Users</li>
+          <li class="spacingNav" ui-sref="tracksIndex">Tracks</li>
+          <li class="spacingNav" ng-if="!main.isLoggedIn()" ui-sref="login">Login</li>
+          <li class="spacingNav" ng-if="!main.isLoggedIn()" ui-sref="register">Register</li>
+          <li class="spacingNav" ng-if="main.isLoggedIn()" ui-sref="login" ng-click="main.logout()">Logout</li>
+        </ul>
+      </div>
   </nav>
-  <main ui-view></main>
+  <main class="main" ui-view></main>
 </body>
 </html>

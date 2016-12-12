@@ -1,12 +1,56 @@
-main {
-  background-image: url(../images/turntable.jpg);
+.main {
+  // background-image: url('../images/record.jpg');
+  background-color: rgba(0,0,0,1);
+  h1, h2, h5, h6, ul, li {
+    color: white;
+  }
 }
 
 .nav {
-  background-color: gray;
+  background-color: rgba(0,0,0,1);
+  position: fixed;
+  overflow-x: hidden;
+  overflow-y: visible;
+  width: 100%;
+  z-index: 99999;
+  border-bottom: solid 1px white;
   ul li {
     display: inline-block;
     text-align: center;
-    padding: 0 20px;
+    margin: 7px;
+    width: auto;
   }
+}
+
+.wrapper {
+  width: 30%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.spacingNav {
+  margin: 0 5px;
+  font-size: 19px;
+  color: white;
+}
+
+.middling {
+width: 33%;
+margin: 0 auto;
+}
+
+.userContainer {
+  border: 1px solid white;
+  border-radius: 5px;
+  position: relative;
+  list-style-type: none;
+    h2 h4 img {
+      margin: 0 auto;
+      position: relative;
+
+    }
+}
+
+.profilePic {
+  border-radius: 25px;
 }

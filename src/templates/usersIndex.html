@@ -1,15 +1,13 @@
 <section>
-  <div class="row">
-  <h1>Users Show</h1>
-  <div class="two column">
-  <ul>
-    <li ng-repeat="user in usersIndex.all | orderBy: '-likes'">
-      <img ng-src="{{ user.image }}" width="150"></img>
-      <h2>{{ user.username }}</h2>
-      <h4>{{ user.email }}</h4>
-      <h4>Score: {{ user.likes.length }}</h4>
-    </li>
-  </ul>
-  </div>
-</div>
+    <h1>Users Show</h1>
+      <div class="middling">
+        <ul>
+          <li class="userContainer" ng-repeat="user in usersIndex.all | orderBy: '-likes'">
+            <img class="profilePic" ng-src="{{ user.image }}" width="150"></img>
+            <h5>{{ user.username }}</h5>
+            <h6>{{ user.email }}</h6>
+            <h6>Score: {{ user.likes.length }}</h6>
+          </li>
+        </ul>
+    </div>
 </section>
