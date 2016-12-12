@@ -19,6 +19,7 @@
     "angular-resource": "^1.5.9",
     "angular-ui-router": "^0.3.2",
     "satellizer": "^0.15.5",
-    "skeleton-sass": "^3.0.2"
+    "skeleton-sass": "^3.0.2",
+    "ng-simple-parallax": "*"
   }
 }

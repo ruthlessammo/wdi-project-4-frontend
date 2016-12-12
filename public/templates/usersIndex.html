@@ -1,13 +1,17 @@
 <section>
-    <h1>Users Show</h1>
-      <div class="middling">
-        <ul>
+  <h1>Users Show</h1>
+  <div class="middling">
+    <ul>
+        <div>
           <li class="userContainer" ng-repeat="user in usersIndex.all | orderBy: '-likes'">
             <img class="profilePic" ng-src="{{ user.image }}" width="150"></img>
-            <h5>{{ user.username }}</h5>
+            <a ui-sref="usersShow({ id: user.id })">
+              <h5>{{ user.username }}</h5>
+            </a>
             <h6>{{ user.email }}</h6>
             <h6>Score: {{ user.likes.length }}</h6>
           </li>
-        </ul>
-    </div>
+        </div>
+    </ul>
+  </div>
 </section>

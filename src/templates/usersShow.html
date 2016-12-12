@@ -1,22 +1,24 @@
-<section >
+<section class="wrapper">
   <ul class="row">
-    <li class="four columns">
-      <img ng-src="{{ usersShow.user.image }}" width="250"></img>
-      <h6>Username: {{ usersShow.user.username }}</h6>
-      <h6>Email: {{ usersShow.user.email }}</h6>
-      <h6>Bio: {{ usersShow.user.bio }}</h6>
-    </li>
-  </ul>
+    <div>
+      <li class="four columns">
+        <img ng-src="{{ usersShow.user.image }}" width="250"></img>
+        <h6>Username: {{ usersShow.user.username }}</h6>
+        <h6>Email: {{ usersShow.user.email }}</h6>
+        <h6>Bio: {{ usersShow.user.bio }}</h6>
+      </li>
+    </ul>
 
-  <a ng-show="usersShow.isLoggedIn()" ui-sref="usersEdit({ id: usersShow.user.id })" class="button">Edit</a>
-  <button ng-show="usersShow.isLoggedIn()" ng-click="usersShow.delete()">Delete</button>
+    <a ng-show="usersShow.isLoggedIn()" ui-sref="usersEdit({ id: usersShow.user.id })" class="button">Edit</a>
+    <button ng-show="usersShow.isLoggedIn()" ng-click="usersShow.delete()">Delete</button>
 
-  <ul>
-    <li ng-repeat="track in usersShow.user.tracks">
-      {{track.title}} {{track.artist}} Likes: {{track.likes}}
-      <button>&#9829;</button>
-    </li>
-  </ul>
+    <ul>
+      <li ng-repeat="track in usersShow.user.tracks">
+        {{track.title}} {{track.artist}} Likes: {{track.likes}}
+        <button class="likeBtn">&#9829;</button>
+      </li>
+    </ul>
+  </div>
 
   <section class="row">
     <form ng-submit="usersShow.createTrack()">

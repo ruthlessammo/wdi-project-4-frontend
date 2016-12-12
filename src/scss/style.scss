@@ -1,9 +1,14 @@
 .main {
-  // background-image: url('../images/record.jpg');
+  background-image: url('../images/record.jpg');
   background-color: rgba(0,0,0,1);
   h1, h2, h5, h6, ul, li {
     color: white;
   }
+}
+.padder {
+  margin: 0 auto;
+  max-width: 33%;
+  margin-left: 33%;
 }
 
 .nav {
@@ -17,8 +22,7 @@
   ul li {
     display: inline-block;
     text-align: center;
-    margin: 7px;
-    width: auto;
+    // margin: 7px;
   }
 }
 
@@ -40,11 +44,11 @@ margin: 0 auto;
 }
 
 .userContainer {
-  border: 1px solid white;
-  border-radius: 5px;
+  border-bottom: 1px solid white;
+  // border-radius: 5px;
   position: relative;
   list-style-type: none;
-    h2 h4 img {
+    h2 li h4 img {
       margin: 0 auto;
       position: relative;
 
@@ -54,3 +58,20 @@ margin: 0 auto;
 .profilePic {
   border-radius: 25px;
 }
+
+// .likeBtn {
+//   border-style: none;
+//   // width: 35px;
+//   // height: 35px;
+// }
+
+// .parallax {
+//     background-image: url('../images/record.jpg');
+//
+//     height: 100%;
+//
+//     background-attachment: fixed;
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+// }
