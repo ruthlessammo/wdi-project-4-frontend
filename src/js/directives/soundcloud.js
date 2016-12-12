@@ -1,20 +1,18 @@
 angular.module('finalProject')
   .directive('soundcloud', soundcloud);
 
-soundcloud.$inject = ['soundcloudService', '$sce'];
-function soundcloud(soundcloudService, $sce) {
+function soundcloud() {
   return {
     restrict: 'E',
     replace: true,
     scope: {
-      link: '@',
+      id: '@',
       width: '@',
       height: '@'
     },
-    template: '<iframe width="{{ width }}" height="{{ height }}" src="{{ src }}" frameborder="0"></iframe>',
+    template: '<iframe src="{{ src }}" width="{{ width }}" height="{{ height }}" scrolling="no" frameborder="no"></iframe>',
     link($scope) {
-      const url = $sce.trustAsResourceUrl(`https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${soundcloudService.getCode($scope.link)}`);
-      $scope.src = url;
+      $scope.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${$scope.id}&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true`;
     }
   };
 }

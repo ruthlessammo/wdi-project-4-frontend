@@ -11,8 +11,8 @@ function UsersIndexController(User) {
   usersIndex.all = User.query();
 }
 
-UsersShowController.$inject = ['User', '$state', '$auth'];
-function UsersShowController(User, $state, $auth) {
+UsersShowController.$inject = ['User', '$state', '$auth', 'Track'];
+function UsersShowController(User, $state, $auth, Track) {
   const usersShow = this;
 
   usersShow.user = User.get($state.params);
@@ -22,6 +22,15 @@ function UsersShowController(User, $state, $auth) {
       $state.go('usersIndex');
     });
   }
+
+  usersShow.newTrack = {};
+  function createTrack() {
+    Track.save(usersShow.newTrack, () => {
+      $state.reload();
+    });
+  }
+
+  usersShow.createTrack = createTrack;
   usersShow.delete = deleteUser;
   usersShow.isLoggedIn = $auth.isAuthenticated;
 }

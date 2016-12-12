@@ -1,11 +1,22 @@
 <section>
+  <h2>{{ tracksShow.track.title }}</h2>
+  <h4>{{ tracksShow.track.artist }}</h4>
+  <soundcloud id="{{ tracksShow.track.soundcloud_id }}" width="400px" height="300px" ng-if="tracksShow.track.soundcloud_id"></soundcloud>
+
   <ul>
-    <!-- <li ng-repeat="track in tracksShow"> -->
-      <h2>{{ tracksShow.track.title }}</h2>
-      <h4>{{ tracksShow.track.artist }}</h4>
-      <soundcloud link="{{tracksShow.track.embed_code}}"></soundcloud>
-    </li>
+    <!-- <li ng-repeat="comment in tracksShow.track.comments">{{track.comment.body}}</li> -->
   </ul>
+
+  <form ng-submit="tracksShow.createComment()" method="post">
+  <label for="body"></label>
+  <input type="text" name="body" placeholder="Comment here!" ng-model="tracksShow.newComment.body">
+  <button>Submit</button>
+  </form>
+
+  <button>&#9829;</button>
+
+
+
   <a ng-if="tracksShow.isLoggedIn()" ui-sref="tracksEdit({ id: tracksShow.user.id })" class="button">Edit</a>
   <button ng-if="tracksShow.isLoggedIn()" ng-click="tracksShow.delete()">Delete</button>
 </section>

@@ -1,10 +1,40 @@
-<section>
+<section >
   <ul class="row">
     <li class="four columns">
-        <h6>Username: {{ usersShow.user.username }}</h6>
-        <h6>Email: {{ usersShow.user.email }}</h6>
+      <img ng-src="{{ usersShow.user.image }}" width="250"></img>
+      <h6>Username: {{ usersShow.user.username }}</h6>
+      <h6>Email: {{ usersShow.user.email }}</h6>
+      <h6>Bio: {{ usersShow.user.bio }}</h6>
     </li>
   </ul>
-  <a ng-if="usersShow.isLoggedIn()" ui-sref="usersEdit({ id: usersShow.user.id })" class="button">Edit</a>
-  <button ng-if="usersShow.isLoggedIn()" ng-click="usersShow.delete()">Delete</button>
+
+  <a ng-show="usersShow.isLoggedIn()" ui-sref="usersEdit({ id: usersShow.user.id })" class="button">Edit</a>
+  <button ng-show="usersShow.isLoggedIn()" ng-click="usersShow.delete()">Delete</button>
+
+  <ul>
+    <li ng-repeat="track in usersShow.user.tracks">
+      {{track.title}} {{track.artist}} Likes: {{track.likes}}
+      <button>&#9829;</button>
+    </li>
+  </ul>
+
+  <section class="row">
+    <form ng-submit="usersShow.createTrack()">
+      <div class="twelve columns">
+        <label>Title</label>
+        <input type="text" name="title" placeholder="Title" ng-model="usersShow.newTrack.title" class="u-full-width">
+      </div>
+      <div class="twelve columns">
+        <label>Artist</label>
+        <input type="text" name="artist" placeholder="Artist" ng-model="usersShow.newTrack.artist" class="u-full-width">
+      </div>
+      <div class="twelve columns">
+        <label>Embed Code</label>
+        <input type="text" name="embed_code" placeholder="Embedcode" ng-model="usersShow.newTrack.embed_code" class="u-full-width">
+      </div>
+      <button>Post</button>
+    </form>
+  </section>
+
+
 </section>

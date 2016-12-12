@@ -32,11 +32,21 @@ function TracksShowController(Track, $state, $auth) {
 
   tracksShow.track = Track.get($state.params);
 
+  tracksShow.newComment = {};
+  function createComment() {
+    Track.save(tracksShow.newComment, () => {
+      $state.reload();
+    });
+  }
+
+  tracksShow.createComment = createComment;
+
   function deleteTrack() {
     tracksShow.track.$remove(() => {
       $state.go('tracksIndex');
     });
   }
+
   tracksShow.delete = deleteTrack;
   tracksShow.isLoggedIn = $auth.isAuthenticated;
 }
