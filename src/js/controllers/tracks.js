@@ -24,8 +24,7 @@ function TracksIndexController(Track, $state, $auth, User) {
       track.likes++;
     }
     User.update({id: tracksIndex.currentUser.id}, tracksIndex.currentUser, (user) => {
-      const index = tracksIndex.all.indexOf(track);
-      tracksIndex.all[index].likes = track.likes;
+      $state.reload();
     });
   }
 

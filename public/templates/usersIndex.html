@@ -2,13 +2,13 @@
   <div class="middling">
     <ul>
         <div>
-          <li class="userContainer" ng-repeat="user in usersIndex.all | orderBy: '-likes'">
+          <li class="userContainer" ng-repeat="user in usersIndex.all | orderBy: '-likes_received'">
             <img class="profilePic" ng-src="{{ user.image }}" width="150"></img>
             <a ui-sref="usersShow({ id: user.id })">
               <h5>{{ user.username }}</h5>
             </a>
             <h6>{{ user.email }}</h6>
-            <h6>Score: {{ user.likes.length }}</h6>
+            <h6>Score: {{ user.likes_received }}</h6>
           </li>
         </div>
     </ul>

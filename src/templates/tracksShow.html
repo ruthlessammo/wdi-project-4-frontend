@@ -1,14 +1,17 @@
-<section class="trackShow">
+<section>
+  <div class="trackShow">
   <h2>{{ tracksShow.track.title }}</h2>
   <h4>{{ tracksShow.track.artist }}</h4>
+  <div class="iframe">
   <soundcloud id="{{ tracksShow.track.soundcloud_id }}" width="600px" height="200px" ng-if="tracksShow.track.soundcloud_id"></soundcloud>
+</div>
   <form ng-submit="tracksShow.addLike()" method="post">
     <input type="hidden" name="_method" value="put"/>
     <label for="likes"></label>
     <input type="hidden" name="likes" ng-model="tracksShow.track.likes">
     <button>&#9829;</button>
   </form>
-  <h4><strong>Likes: </strong>{{ tracksShow.track.likes }}</h4>
+  <h4><strong>Likes: </strong>{{ tracksShow.track.likes.length }}</h4>
 
   <div class="">
     <strong>Comments</strong>
@@ -24,7 +27,7 @@
     <button>Submit</button>
   </form>
 
-
-  <a ng-if="tracksShow.isLoggedIn()" ui-sref="tracksEdit({ id: track.id })" class="button">Edit</a>
+  <a ng-if="tracksShow.isLoggedIn()" ui-sref="tracksEdit({ id: tracksShow.track.id })" class="button">Edit</a>
   <button ng-if="tracksShow.isLoggedIn()" ng-click="tracksShow.delete()">Delete</button>
+</div>
 </section>
