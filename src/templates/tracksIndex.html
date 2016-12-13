@@ -1,8 +1,7 @@
 <section >
   <div class="row">
-  <h1>Ruthless Track Index</h1>
   <div class="two column">
-  <ul>
+  <ul class="tracksIndex">
     <li ng-repeat="track in tracksIndex.all | orderBy: '-likes' ">
       <h2><a ui-sref="tracksShow({ id: track.id })">{{ track.title }}</a></h2>
       <h4>{{ track.artist }}</h4>
