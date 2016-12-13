@@ -15,7 +15,7 @@
 .padder {
   margin: 0 auto;
   max-width: 33%;
-  margin-left: 33%;
+  margin-left: 37%;
 }
 
 .nav {
@@ -25,6 +25,7 @@
   overflow-y: visible;
   width: 100%;
   z-index: 99999;
+  border-bottom: 1px solid white;
   ul li {
     display: inline-block;
     text-align: center;
@@ -94,9 +95,15 @@
 
 .login {
   height: 100vh;
-  form {
-    padding-left: 40%
-  }
+  position: relative;
+}
+.loginform {
+  position: relative;
+  padding-left: 43%;
+  padding-top: 150px;
+    form h5 a {
+      text-align: center;
+    }
 }
 
 iframe {
@@ -113,4 +120,25 @@ iframe {
 .iframe iframe {
   // width: 100%;
   // height: 100%;
+}
+
+.homepage {
+  height: 100vh;
+}
+.splash {
+  padding-top: 27%;
+  margin-left: 35%;
+  z-index: 99999;
+  a {
+    position: relative;
+    margin-left: 19%;
+  }
+}
+
+.register {
+  height: 100vh;
+  form {
+    padding-top: 17%;
+    margin-left: 44%;
+  }
 }
