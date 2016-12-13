@@ -26,6 +26,6 @@
   </form>
 
 
-  <a ng-if="tracksShow.isLoggedIn()" ui-sref="tracksEdit({ id: tracksShow.user.id })" class="button">Edit</a>
+  <a ng-if="tracksShow.isLoggedIn()" ui-sref="tracksEdit({ id: track.id })" class="button">Edit</a>
   <button ng-if="tracksShow.isLoggedIn()" ng-click="tracksShow.delete()">Delete</button>
 </section>

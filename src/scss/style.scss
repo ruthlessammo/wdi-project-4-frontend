@@ -1,6 +1,18 @@
 .main {
-  background-image: url('../images/record.jpg');
-  background-color: rgba(0,0,0,1);
+
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ), url('../assets/images/turntable3.jpg');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;
+  width: 100%;
+
+
+
+
   h1, h2, h5, h6, ul, li {
     color: white;
   }
@@ -39,8 +51,8 @@
 }
 
 .middling {
-width: 33%;
-margin: 0 auto;
+  width: 33%;
+  margin: 0 auto;
 }
 
 .userContainer {
@@ -48,30 +60,13 @@ margin: 0 auto;
   // border-radius: 5px;
   position: relative;
   list-style-type: none;
-    h2 li h4 img {
-      margin: 0 auto;
-      position: relative;
+  h2 li h4 img {
+    margin: 0 auto;
+    position: relative;
 
-    }
+  }
 }
 
 .profilePic {
   border-radius: 25px;
 }
-
-// .likeBtn {
-//   border-style: none;
-//   // width: 35px;
-//   // height: 35px;
-// }
-
-// .parallax {
-//     background-image: url('../images/record.jpg');
-//
-//     height: 100%;
-//
-//     background-attachment: fixed;
-//     background-position: center;
-//     background-repeat: no-repeat;
-//     background-size: cover;
-// }

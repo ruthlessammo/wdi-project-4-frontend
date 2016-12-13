@@ -8,7 +8,7 @@ TracksIndexController.$inject = ['Track', '$state', '$auth', 'User'];
 function TracksIndexController(Track, $state, $auth, User) {
   const tracksIndex = this;
   if($auth.isAuthenticated()) {
-    tracksIndex.currentUser = User.get({id: $auth.getPayload().id})
+    tracksIndex.currentUser = User.get({id: $auth.getPayload().id});
   }
 
   tracksIndex.all = Track.query();
@@ -50,7 +50,7 @@ TracksShowController.$inject = ['Track', '$state', 'Comment', '$auth', 'User'];
 function TracksShowController(Track, $state, Comment, $auth, User) {
   const tracksShow = this;
   if($auth.isAuthenticated()) {
-    tracksShow.currentUser = User.get({id: $auth.getPayload().id})
+    tracksShow.currentUser = User.get({id: $auth.getPayload().id});
   }
 
   tracksShow.track = Track.get($state.params);

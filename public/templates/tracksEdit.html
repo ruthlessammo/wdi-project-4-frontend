@@ -1,0 +1,18 @@
+<section class="row">
+  <form ng-submit="tracksEdit.update()">
+    <div class="twelve columns">
+      <label>Title</label>
+      <input type="text" name="title" ng-model="tracksEdit.track.title" class="u-full-width">
+    </div>
+    <div class="twelve columns">
+      <label>Artist</label>
+      <input type="text" name="artist" ng-model="tracksEdit.track.artist" class="u-full-width">
+    </div>
+    <div class="twelve columns">
+      <label>Embed Code</label>
+      <input type="text" name="embed_code" ng-model="tracksEdit.track.embed_code" class="u-full-width">
+    </div>
+
+    <button>Update</button>
+  </form>
+</section>

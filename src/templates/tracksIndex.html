@@ -4,7 +4,7 @@
   <div class="two column">
   <ul>
     <li ng-repeat="track in tracksIndex.all | orderBy: '-likes' ">
-      <h2>{{ track.title }}</h2>
+      <h2><a ui-sref="tracksShow({ id: track.id })">{{ track.title }}</a></h2>
       <h4>{{ track.artist }}</h4>
       <soundcloud id="{{track.soundcloud_id}}" width="400px" height="300px"></soundcloud>
       <h4><strong>Likes:</strong> {{ track.likes }}</h4>
