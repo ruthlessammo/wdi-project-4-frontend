@@ -50,14 +50,14 @@ function Router($stateProvider, $urlRouterProvider ) {
   })
 
   //OTHER ROUTES
-  .state('home', {
-    url: '/',
-    templateUrl: '/templates/home.html'
-  })
+  // .state('home', {
+  //   url: '/',
+  //   templateUrl: '/templates/home.html'
+  // })
   .state('about', {
     url: '/about',
     templateUrl: '/templates/about.html'
   });
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/tracks');
 }

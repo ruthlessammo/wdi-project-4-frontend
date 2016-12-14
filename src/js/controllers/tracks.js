@@ -47,12 +47,24 @@ function TracksNewController(Track, $state) {
 
 TracksShowController.$inject = ['Track', '$state', 'Comment', '$auth', 'User'];
 function TracksShowController(Track, $state, Comment, $auth, User) {
+  // const payload = $auth.getPayload();
+  // const current_user = payload;
   const tracksShow = this;
   if($auth.isAuthenticated()) {
     tracksShow.currentUser = User.get({id: $auth.getPayload().id});
   }
 
   tracksShow.track = Track.get($state.params);
+
+  // function checkUser() {
+  //   console.log('tracksShow.track.user.id', tracksShow.track.user.id);
+  //   console.log('current_user.id', current_user.id);
+  //   if (tracksShow.track.user.id === current_user.id) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   tracksShow.newComment = {
     track_id: $state.params.id
@@ -88,6 +100,7 @@ function TracksShowController(Track, $state, Comment, $auth, User) {
     });
   }
 
+  // tracksShow.checkUser = checkUser;
   tracksShow.delete = deleteTrack;
   tracksShow.isLoggedIn = $auth.isAuthenticated;
 }

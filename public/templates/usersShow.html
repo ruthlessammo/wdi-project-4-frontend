@@ -1,42 +1,50 @@
 <section class="wrapper">
-  <ul class="row">
-    <div>
-      <li class="four columns">
-        <img ng-src="{{ usersShow.user.image }}" width="250"></img>
+  <div class="four columns userLeft">
+    <ul class="row">
+      <li>
+        <img class="userPic" ng-src="{{ usersShow.user.image }}" width="250"></img>
         <h6>Username: {{ usersShow.user.username }}</h6>
         <h6>Email: {{ usersShow.user.email }}</h6>
         <h6>Bio: {{ usersShow.user.bio }}</h6>
       </li>
     </ul>
 
-    <a ng-show="usersShow.isLoggedIn()" ui-sref="usersEdit({ id: usersShow.user.id })" class="button">Edit</a>
-    <button ng-show="usersShow.isLoggedIn()" ng-click="usersShow.delete()">Delete</button>
+    <div ng-show="usersShow.checkUser()">
+      <a ng-show="usersShow.isLoggedIn()" ui-sref="usersEdit({ id: usersShow.user.id })" class=" button likeBtn">Edit</a>
+      <button class="likeBtn" ng-show="usersShow.isLoggedIn()" ng-click="usersShow.delete()">Delete</button>
+    </div>
+  </div>
 
+  <div class="four columns userMiddle">
     <ul>
+      <strong>{{usersShow.user.username}}'s</strong> tracks:
       <li ng-repeat="track in usersShow.user.tracks">
-        {{track.title}} {{track.artist}} Likes: {{track.likes}}
-        <button class="likeBtn">&#9829;</button>
+        <a ui-sref="tracksShow({ id: track.id})">{{track.title}}</a>, <strong>{{track.artist}}</strong> Likes: {{track.likes.length}}
       </li>
     </ul>
   </div>
 
-  <section class="row">
-    <form ng-submit="usersShow.createTrack()">
-      <div class="twelve columns">
-        <label>Title</label>
-        <input type="text" name="title" placeholder="Title" ng-model="usersShow.newTrack.title" class="u-full-width">
-      </div>
-      <div class="twelve columns">
-        <label>Artist</label>
-        <input type="text" name="artist" placeholder="Artist" ng-model="usersShow.newTrack.artist" class="u-full-width">
-      </div>
-      <div class="twelve columns">
-        <label>Embed Code</label>
-        <input type="text" name="embed_code" placeholder="Embedcode" ng-model="usersShow.newTrack.embed_code" class="u-full-width">
-      </div>
-      <button>Post</button>
-    </form>
-  </section>
+  <div class="userRight four columns">
+    <div ng-show="usersShow.checkUser()">
+      <section class="row">
+        <form ng-submit="usersShow.createTrack()">
+          <div class="twelve columns">
+            <label>Title</label>
+            <input type="text" name="title" placeholder="Title" ng-model="usersShow.newTrack.title" class="u-full-width">
+          </div>
+          <div class="twelve columns">
+            <label>Artist</label>
+            <input type="text" name="artist" placeholder="Artist" ng-model="usersShow.newTrack.artist" class="u-full-width">
+          </div>
+          <div class="twelve columns">
+            <label>Embed Code</label>
+            <input type="text" name="embed_code" placeholder="Embedcode" ng-model="usersShow.newTrack.embed_code" class="u-full-width">
+          </div>
+          <button class="likeBtn">Post</button>
+        </form>
+      </section>
+    </div>
+  </div>
 
 
 </section>

@@ -13,17 +13,19 @@
 </head>
 <body ng-controller="MainController as main">
   <nav class='nav'>
-    <div class="wrapper">
-        <ul>
-          <li class="spacingNav" ui-sref="home">Home</li>
-          <li class="spacingNav" ui-sref="about">About</li>
-          <li class="spacingNav" ui-sref="usersIndex">Users</li>
-          <li class="spacingNav" ui-sref="tracksIndex">Tracks</li>
+    <div>
+      <ul>
+        <li class="spacingNav" ui-sref="home">Home</li>
+        <li class="spacingNav" ui-sref="about">About</li>
+        <li class="spacingNav" ui-sref="usersIndex">Users</li>
+        <li class="spacingNav" ui-sref="tracksIndex">Tracks</li>
+        <span class="navRight">
           <li class="spacingNav" ng-if="!main.isLoggedIn()" ui-sref="login">Login</li>
           <li class="spacingNav" ng-if="!main.isLoggedIn()" ui-sref="register">Register</li>
           <li class="spacingNav" ng-if="main.isLoggedIn()" ui-sref="login" ng-click="main.logout()">Logout</li>
-        </ul>
-      </div>
+        </span>
+      </ul>
+    </div>
   </nav>
   <main class="main" ui-view></main>
 </body>

@@ -27,7 +27,9 @@
     <button>Submit</button>
   </form>
 
-  <a ng-if="tracksShow.isLoggedIn()" ui-sref="tracksEdit({ id: tracksShow.track.id })" class="button">Edit</a>
+  <div ng-show=>
+  <a ui-sref="tracksEdit({ id: tracksShow.track.id })" class="button">Edit</a>
   <button ng-if="tracksShow.isLoggedIn()" ng-click="tracksShow.delete()">Delete</button>
+  </div>
 </div>
 </section>
