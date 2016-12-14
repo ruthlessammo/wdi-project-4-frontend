@@ -18,6 +18,7 @@ function MainController($auth, $state, $rootScope) {
   const protectedStates = ['usersEdit'];
 
   function secureState(e, toState) {
+    main.controllerName = toState.name;
     main.message = null;
     if(!$auth.isAuthenticated() && protectedStates.includes(toState.name)) {
       e.preventDefault();

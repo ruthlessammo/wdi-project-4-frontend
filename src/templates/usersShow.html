@@ -1,21 +1,17 @@
-<section class="wrapper">
-  <div class="four columns userLeft">
-    <ul class="row">
-      <li>
-        <img class="userPic" ng-src="{{ usersShow.user.image }}" width="250"></img>
-        <h6>Username: {{ usersShow.user.username }}</h6>
-        <h6>Email: {{ usersShow.user.email }}</h6>
-        <h6>Bio: {{ usersShow.user.bio }}</h6>
-      </li>
-    </ul>
+<section class="row users-show">
 
+  <div class="four columns">
+    <img class="userPic" ng-src="{{ usersShow.user.image }}" width="250"></img>
+    <h6>Username: {{ usersShow.user.username }}</h6>
+    <h6>Email: {{ usersShow.user.email }}</h6>
+    <h6>Bio: {{ usersShow.user.bio }}</h6>
     <div ng-show="usersShow.checkUser()">
       <a ng-show="usersShow.isLoggedIn()" ui-sref="usersEdit({ id: usersShow.user.id })" class=" button likeBtn">Edit</a>
       <button class="likeBtn" ng-show="usersShow.isLoggedIn()" ng-click="usersShow.delete()">Delete</button>
     </div>
   </div>
 
-  <div class="four columns userMiddle">
+  <div class="four columns">
     <ul>
       <strong>{{usersShow.user.username}}'s</strong> tracks:
       <li ng-repeat="track in usersShow.user.tracks">
@@ -24,9 +20,9 @@
     </ul>
   </div>
 
-  <div class="userRight four columns">
+  <div class="four columns">
     <div ng-show="usersShow.checkUser()">
-      <section class="row">
+      <section>
         <form ng-submit="usersShow.createTrack()">
           <div class="twelve columns">
             <label>Title</label>
@@ -40,11 +36,9 @@
             <label>Embed Code</label>
             <input type="text" name="embed_code" placeholder="Embedcode" ng-model="usersShow.newTrack.embed_code" class="u-full-width">
           </div>
-          <button class="likeBtn">Post</button>
+          <button class="u-full-width">Post</button>
         </form>
       </section>
     </div>
   </div>
-
-
 </section>

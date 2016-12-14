@@ -1,18 +1,15 @@
-<section class="login row">
-  <div class="loginform column four">
-    <form novalidate ng-submit="login.submit()">
-      <div>
-        <label>Email</label>
-        <input type="email" placeholder="Email" ng-model="login.credentials.email">
-      </div>
-      <div>
-        <label>Password</label>
-        <input type="password" placeholder="Password" ng-model="login.credentials.password">
-      </div>
+<section class="popup six columns">
+  <form novalidate ng-submit="login.submit()">
+    <div>
+      <label>Email</label>
+      <input type="email" placeholder="Email" ng-model="login.credentials.email" class="u-full-width">
+    </div>
+    <div>
+      <label>Password</label>
+      <input type="password" placeholder="Password" ng-model="login.credentials.password" class="u-full-width">
+    </div>
 
-      <button>Login</button>
-    </form>
-    <h5>or</h5>
-    <a ui-sref="register">Register</a>  
-  </section>
-</div>
+    <button class="u-full-width">Login</button>
+    <button class="u-full-width" type="button" ui-sref="register">Not a user? Register</button>
+  </form>
+</section>

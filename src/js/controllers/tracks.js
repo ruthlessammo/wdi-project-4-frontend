@@ -24,7 +24,7 @@ function TracksIndexController(Track, $state, $auth, User) {
       track.likes++;
     }
     User.update({id: tracksIndex.currentUser.id}, tracksIndex.currentUser, (user) => {
-      $state.reload();
+      // $state.reload();
     });
   }
 
@@ -88,6 +88,7 @@ function TracksShowController(Track, $state, Comment, $auth, User) {
       tracksShow.track.likes++;
     }
     User.update({id: tracksShow.currentUser.id}, tracksShow.currentUser, () => {
+      // $state.reload();
     });
   }
 

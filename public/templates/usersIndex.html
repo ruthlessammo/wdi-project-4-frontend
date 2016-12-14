@@ -1,19 +1,12 @@
 <section>
-  <div class="middling">
-    <ul>
-      <div>
-        <li class="userContainer" ng-repeat="user in usersIndex.all | orderBy: '-likes_received'">
-          <div class="innerContainer">
-            <img class="profilePic" ng-src="{{ user.image }}" width="150"></img>
-            <a ui-sref="usersShow({ id: user.id })">
-              <h5>{{ user.username }}</h5>
-            </a>
-            <h6>{{ user.email }}</h6>
-            <h6>{{ user.bio }}</h6>
-            <h6>Score: {{ user.likes_received }}</h6>
-          </div>
-        </li>
-      </div>
-    </ul>
-  </div>
+  <ul class="row users">
+    <li class="users-single four columns" ng-repeat="user in usersIndex.all | orderBy: '-likes_received'">
+        <div class="users-single-image" style="background-image:url('{{ user.image }}')"></div>
+        <a ui-sref="usersShow({ id: user.id })">
+          <h5>{{ user.username }}</h5>
+        </a>
+        <h6>{{ user.email }}</h6>
+        <h6>Score: {{ user.likes_received }}</h6>
+    </li>
+  </ul>
 </section>

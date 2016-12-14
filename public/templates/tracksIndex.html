@@ -1,27 +1,27 @@
 <section >
-  <div class="row">
-    <div class="two column">
+    <!-- <div class="two column">
       <div class="tracksIndex">
-        <div class="middling2"
-        <ul>
-          <li ng-repeat="track in tracksIndex.all | orderBy: '-likes' " class="indexBorder">
-            <h4><a ui-sref="tracksShow({ id: track.id })">{{ track.title }}</a></h4>
-            <h5>{{ track.artist }}</h5>
-            <div class="iframe">
-              <soundcloud id="{{track.soundcloud_id}}" width="100%" height="300px"></soundcloud>
+        <div class="middling2"> -->
+        <ul class="tracks-index">
+          <li ng-repeat="track in tracksIndex.all | orderBy: '-likes' " class="row">
+            <div class="eight columns">
+              <div class="iframe">
+                <soundcloud id="{{track.soundcloud_id}}" width="100%" height="300px"></soundcloud>
+              </div>
             </div>
-            <form ng-submit="tracksIndex.addLike(track)" method="post">
-              <input type="hidden" name="_method" value="put"/>
-              <label for="likes"></label>
-              <input type="hidden" name="likes" ng-model="tracksIndex.track.likes">
-              <button class="likeBtn">&#9829;</button>
-            </form>
-            <h4><strong>Likes:</strong> {{ track.likes.length }}</h4>
+            <div class="four columns info">
+              <h2><a ui-sref="tracksShow({ id: track.id })">{{ track.title }}</a></h2>
+              <h3>{{ track.artist }}</h3>
+              <h3>Likes: {{ track.likes.length }}</h3>
+              <form ng-submit="tracksIndex.addLike(track)" method="post">
+                <!-- <input type="hidden" name="_method" value="put"/> -->
+                <input type="hidden" name="likes" ng-model="tracksIndex.track.likes">
+                <button class="like">&#9829;</button>
+              </form>
+            </div>
           </li>
-          <br>
         </ul>
-      </div>
+      <!-- </div>
     </div>
-  </div>
-</div>
+  </div> -->
 </section>

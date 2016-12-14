@@ -1,16 +1,40 @@
-.main {
-  background-image: linear-gradient(
-  rgba(0, 0, 0, 0.4),
-  rgba(0, 0, 0, 0.4)
-  ), url('../assets/images/turntable3.jpg');
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-attachment: fixed;
-  width: 100%;
-  h1, h2, h5, h6, ul, li {
-    color: white;
+$orange: #ff5200;
+
+body, h1, h2, h3, h4, h5, h6, button {
+  font-family: 'Karla', sans-serif;
+}
+
+body {
+  &.login-class, &.register-class, &.home-class, &.usersShow-class {
+    background-image: linear-gradient(
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.4)
+    ), url('../assets/images/elvis.jpg');
+    background-size: cover;
+    background-position: center;
+    nav {
+      background-color: transparent;
+    }
   }
+  img {
+    max-width: 100%;
+  }
+}
+
+main.container {
+  padding-top: 90px;
+  // background-image: linear-gradient(
+  // rgba(0, 0, 0, 0.4),
+  // rgba(0, 0, 0, 0.4)
+  // ), url('../assets/images/elvis.jpg');
+  // background-size: 100% auto;
+  // background-repeat: no-repeat;
+  // background-position: top center;
+  // background-attachment: fixed;
+  // width: 100%;
+  // h1, h2, h5, h6, ul, li {
+  //   color: white;
+  // }
 }
 .navRight {
   float: right;
@@ -22,17 +46,30 @@
 }
 
 .nav {
-  background-color: rgba(0,0,0,1);
-  // position: fixed;
-  // overflow-x: hidden;
-  // overflow-y: visible;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  overflow-x: hidden;
+  overflow-y: visible;
   width: 100%;
   z-index: 99999;
-  border-bottom: 1px solid white;
-  ul li {
-    display: inline-block;
-    text-align: center;
-    // margin: 7px;
+  height: 60px;
+  ul {
+    padding: 0 20px;
+    li {
+      display: inline-block;
+      text-align: center;
+      line-height: 60px;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin: 0 3px;
+      font-size: 18px;
+      color: white;
+      &.logo {
+        font-weight: bold;
+        font-size: 22px;
+        margin-right: 10px;
+      }
+    }
   }
 }
 
@@ -44,11 +81,7 @@
   padding: 50px 30px;
 }
 
-.spacingNav {
-  margin: 0 3px;
-  font-size: 18px;
-  color: white;
-}
+
 
 .middling {
   width: 40%;
@@ -56,8 +89,7 @@
 }
 
 .userContainer {
-  border-bottom: 4px solid white;
-  border-radius: 5px;
+  border-bottom: 1px solid white;
   position: relative;
   list-style-type: none;
   padding-top: 60px;
@@ -69,28 +101,36 @@
   }
 }
 
-.profilePic {
-  border-radius: 25px;
-  // width:100%;
-  margin: 0 auto;
-}
+// .profilePic {
+//   border-radius: 25px;
+//   // width:100%;
+//   margin: 0 auto;
+// }
 
-.tracksShow {
-  color: white;
-}
+// .tracksShow {
+//   color: white;
+// }
 
-.tracksIndex {
-  list-style-type: none;
-  width: 25%;
-  margin-left: 25%;
-  padding-top: 60px;
-  // margin-bottom: 50px;
-  color: white;
-  h4, h5, button  {
-    color: white;
-    text-align: center;
-  }
-}
+// .tracksIndex {
+//   list-style-type: none;
+//   width: 25%;
+//   margin-left: 25%;
+//   padding-top: 60px;
+//   // margin-bottom: 50px;
+//   // color: white;
+//   h4, h5  {
+//     // color: white;
+//     text-align: center;
+//     .like {
+//       // border: none;
+//       color: red;
+//       font-size: 50px;
+//       &:hover {
+//         color: darken( $base-color, 10% )
+//       }
+//     }
+//   }
+// }
 
 .innerContainer {
   margin: 0 auto;
@@ -102,59 +142,134 @@
   width: 50%;
 }
 
-.middling2 {
-  width: 400%
-}
+// .middling2 {
+//   width: 400%
+// }
 
-.login {
-  height: 100vh;
-  position: relative;
-}
-.loginform {
-  position: relative;
-  padding-left: 43%;
-  padding-top: 150px;
-  form h5 a {
-    text-align: center;
+.users-show {
+  background-color: white;
+  padding: 20px;
+  button {
+    background-color: $orange;
+    color: white;
+    font-size: 14px;
+    border: 0;
   }
 }
 
+.tracks-index {
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: normal;
+  }
+  .info {
+    margin-top: 65px;
+  }
+  .like {
+    border: none;
+    color: $orange;
+    height: 50px;
+    font-size: 20px;
+    padding: 0;
+    transition: all 0.2s ease;
+    &:hover {
+      color: darken($orange, 5%)
+    }
+  }
+}
+
+.users {
+  list-style: none;
+  .users-single {
+    // background-color: white;
+    // padding: 10px;
+    &:nth-child(3n+1) {
+      margin-left: 0;
+      clear: left;
+    }
+    .users-single-image {
+      background-size: cover;
+      background-position: center;
+      &:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+    }
+  }
+}
+
+.popup {
+  background-color: white;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  form {
+    margin: 0;
+  }
+  button {
+    background-color: $orange;
+    color: white;
+    font-size: 14px;
+    border: 0;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// .login {
+//   height: 100vh;
+//   position: relative;
+// }
+// .loginform {
+//   position: relative;
+//   padding-left: 43%;
+//   padding-top: 150px;
+//   form h5 a {
+//     text-align: center;
+//   }
+// }
+
 iframe {
   border: 4px solid black;
-  border-radius: 7px;
-  -webkit-border-radius: 7px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
   // -o-border-radius: 20px;
   position: relative;
   overflow: hidden;
   // width: 400px;
   // height: 300px;
-  z-index: 99999;
+  // z-index: 99999;
 }
 .iframe iframe {
   // width: 100%;
   // height: 100%;
 }
 
-.homepage {
-  height: 100vh;
-}
-.splash {
-  padding-top: 27%;
-  margin-left: 35%;
-  z-index: 99999;
-  a {
-    position: relative;
-    margin-left: 19%;
-  }
-}
-
-.register {
-  height: 100vh;
-  form {
-    padding-top: 17%;
-    margin-left: 44%;
-  }
-}
+// .homepage {
+//   height: 100vh;
+// }
+// .splash {
+//   padding-top: 27%;
+//   margin-left: 35%;
+//   z-index: 99999;
+//   a {
+//     position: relative;
+//     margin-left: 19%;
+//   }
+// }
 
 .userLeft {
   width: 33%;
@@ -168,7 +283,6 @@ iframe {
   margin-top: 50px;
   color: #0FA0CE;
   background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 20px;
   form {
     padding: 10px;
     button {
@@ -183,7 +297,6 @@ iframe {
   width: 33%;
   margin-top: 50px;
   background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 20px;
   ul {
     padding-left: 10px;
     li {
@@ -196,13 +309,4 @@ iframe {
 .about {
   height: 100vh;
   list-style: none;
-}
-
-.likeBtn {
-  border: none;
-  color: #0FA0CE
-}
-
-.userPic {
-  border-radius: 25px;
 }
