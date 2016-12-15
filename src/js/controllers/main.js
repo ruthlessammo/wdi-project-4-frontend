@@ -20,6 +20,9 @@ function MainController($auth, $state, $rootScope) {
   function secureState(e, toState) {
     main.controllerName = toState.name;
     main.message = null;
+    if ($auth.isAuthenticated()) {
+      main.currentUserId = $auth.getPayload().id;
+    }
     if(!$auth.isAuthenticated() && protectedStates.includes(toState.name)) {
       e.preventDefault();
       $state.go('login');

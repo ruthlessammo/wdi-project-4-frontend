@@ -15,11 +15,12 @@
 <body ng-controller="MainController as main" ng-class="main.controllerName+'-class'">
   <nav class='nav'>
       <ul>
-        <li class="logo" ui-sref="login">RUTHLESS MUZIC</li>
+        <li class="logo" ui-sref="tracksIndex">RUTHLESS MUZIC</li>
         <li ui-sref="about">About</li>
         <li ng-if="main.isLoggedIn()" ui-sref="usersIndex">Users</li>
         <li ng-if="main.isLoggedIn()" ui-sref="tracksIndex">Tracks</li>
         <span class="navRight">
+          <li ng-if="main.isLoggedIn()" ui-sref="usersShow({id: main.currentUserId})">Profile</li>
           <li ng-if="!main.isLoggedIn()" ui-sref="login">Login</li>
           <li ng-if="!main.isLoggedIn()" ui-sref="register">Register</li>
           <li ng-if="main.isLoggedIn()" ui-sref="login" ng-click="main.logout()">Logout</li>

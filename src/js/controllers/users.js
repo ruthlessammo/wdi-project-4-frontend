@@ -4,9 +4,15 @@ angular.module('finalProject')
   .controller('UsersEditController', UsersEditController);
 
 
-UsersIndexController.$inject = ['User'];
-function UsersIndexController(User) {
+UsersIndexController.$inject = ['User', '$auth'];
+function UsersIndexController(User, $auth) {
   const usersIndex = this;
+  const payload = $auth.getPayload();
+  const current_user = payload;
+
+  if($auth.isAuthenticated()) {
+    usersIndex.currentUser = User.get({id: $auth.getPayload().id});
+  }
 
   usersIndex.all = User.query();
 }

@@ -12,6 +12,7 @@
             <div class="four columns info">
               <h2><a ui-sref="tracksShow({ id: track.id })">{{ track.title }}</a></h2>
               <h3>{{ track.artist }}</h3>
+              <p>Posted by: {{track.user.username }}</p>
               <h3>Likes: {{ track.likes.length }}</h3>
               <form ng-submit="tracksIndex.addLike($event, track)" method="post">
                 <!-- <input type="hidden" name="_method" value="put"/> -->

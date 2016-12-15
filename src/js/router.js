@@ -59,5 +59,5 @@ function Router($stateProvider, $urlRouterProvider ) {
     templateUrl: '/templates/about.html'
   });
 
-  $urlRouterProvider.otherwise('/tracks');
+  $urlRouterProvider.otherwise('login');
 }

@@ -2,7 +2,7 @@
   <div class="trackShow u-full-width">
   <h2>{{ tracksShow.track.title }}</h2>
   <h4>{{ tracksShow.track.artist }}</h4>
-  beatnick {{tracksShow.track.user.username }}
+  <p>Posted by: {{tracksShow.track.user.username }}</p>
   <div class="iframe">
   <soundcloud id="{{ tracksShow.track.soundcloud_id }}" width="100%" height="100%" style="position:relative" ng-if="tracksShow.track.soundcloud_id"></soundcloud>
 </div>
