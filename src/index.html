@@ -2,6 +2,7 @@
 <html ng-app="finalProject">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Final Project</title>
   <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">  <link rel="stylesheet" href="css/vendor.css">
   <link rel="stylesheet" href="css/style.css">
@@ -14,10 +15,10 @@
 <body ng-controller="MainController as main" ng-class="main.controllerName+'-class'">
   <nav class='nav'>
       <ul>
-        <li class="logo" ui-sref="home">RUTHLESS MUZIC</li>
+        <li class="logo" ui-sref="login">RUTHLESS MUZIC</li>
         <li ui-sref="about">About</li>
-        <li ui-sref="usersIndex">Users</li>
-        <li ui-sref="tracksIndex">Tracks</li>
+        <li ng-if="main.isLoggedIn()" ui-sref="usersIndex">Users</li>
+        <li ng-if="main.isLoggedIn()" ui-sref="tracksIndex">Tracks</li>
         <span class="navRight">
           <li ng-if="!main.isLoggedIn()" ui-sref="login">Login</li>
           <li ng-if="!main.isLoggedIn()" ui-sref="register">Register</li>

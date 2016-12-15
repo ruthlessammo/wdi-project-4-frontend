@@ -1,9 +1,10 @@
-<section>
-  <div class="trackShow">
+<section class="tracksShow-class row">
+  <div class="trackShow u-full-width">
   <h2>{{ tracksShow.track.title }}</h2>
   <h4>{{ tracksShow.track.artist }}</h4>
+  beatnick {{tracksShow.track.user.username }}
   <div class="iframe">
-  <soundcloud id="{{ tracksShow.track.soundcloud_id }}" width="600px" height="200px" ng-if="tracksShow.track.soundcloud_id"></soundcloud>
+  <soundcloud id="{{ tracksShow.track.soundcloud_id }}" width="100%" height="100%" style="position:relative" ng-if="tracksShow.track.soundcloud_id"></soundcloud>
 </div>
   <form ng-submit="tracksShow.addLike()" method="post">
     <input type="hidden" name="_method" value="put"/>
@@ -17,8 +18,8 @@
     <strong>Comments</strong>
     <ul>
       <li ng-repeat="comment in tracksShow.track.comments">
+        <strong>{{ comment.user.username }} </strong>
         {{comment.body}}
-        <strong>{{ comment.user.username }}</strong>
       </li>
     </ul>
   </div>

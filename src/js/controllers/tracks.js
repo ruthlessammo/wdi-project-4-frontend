@@ -14,7 +14,10 @@ function TracksIndexController(Track, $state, $auth, User) {
   tracksIndex.all = Track.query();
   tracksIndex.addLike = addLike;
 
-  function addLike(track) {
+  function addLike(event, track) {
+    console.log('event', event);
+    // event.preventDefault();
+    // event.stopPropagation();
     const index = tracksIndex.currentUser.like_ids.indexOf(track.id);
     if(index > -1) {
       tracksIndex.currentUser.like_ids.splice(index, 1);
@@ -24,7 +27,7 @@ function TracksIndexController(Track, $state, $auth, User) {
       track.likes++;
     }
     User.update({id: tracksIndex.currentUser.id}, tracksIndex.currentUser, (user) => {
-      // $state.reload();
+      $state.reload();
     });
   }
 

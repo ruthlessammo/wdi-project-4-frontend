@@ -5,7 +5,7 @@ body, h1, h2, h3, h4, h5, h6, button {
 }
 
 body {
-  &.login-class, &.register-class, &.home-class, &.usersShow-class {
+  &.login-class, &.about, &.register-class, &.home-class, &.usersShow-class, &.tracksShow-class {
     background-image: linear-gradient(
     rgba(0, 0, 0, 0.4),
     rgba(0, 0, 0, 0.4)
@@ -23,18 +23,6 @@ body {
 
 main.container {
   padding-top: 90px;
-  // background-image: linear-gradient(
-  // rgba(0, 0, 0, 0.4),
-  // rgba(0, 0, 0, 0.4)
-  // ), url('../assets/images/elvis.jpg');
-  // background-size: 100% auto;
-  // background-repeat: no-repeat;
-  // background-position: top center;
-  // background-attachment: fixed;
-  // width: 100%;
-  // h1, h2, h5, h6, ul, li {
-  //   color: white;
-  // }
 }
 .navRight {
   float: right;
@@ -107,10 +95,20 @@ main.container {
 //   margin: 0 auto;
 // }
 
-// .tracksShow {
-//   color: white;
-// }
-
+.trackShow {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 10px;
+  width:95%;
+  height: 100vh;
+  .iframe {
+    // padding-left: 70px;
+    position: relative;
+    // width: 80%;
+    .like {
+      // padding-left: 70px;
+    }
+  }
+}
 // .tracksIndex {
 //   list-style-type: none;
 //   width: 25%;
@@ -147,7 +145,7 @@ main.container {
 // }
 
 .users-show {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.95);
   padding: 20px;
   button {
     background-color: $orange;
@@ -243,7 +241,7 @@ main.container {
 // }
 
 iframe {
-  border: 4px solid black;
+  border: 4px solid #ff5200;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   // -o-border-radius: 20px;
@@ -307,6 +305,5 @@ iframe {
 }
 
 .about {
-  height: 100vh;
   list-style: none;
 }
