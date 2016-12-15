@@ -91,7 +91,7 @@ function TracksShowController(Track, $state, Comment, $auth, User) {
       tracksShow.track.likes++;
     }
     User.update({id: tracksShow.currentUser.id}, tracksShow.currentUser, () => {
-      // $state.reload();
+      $state.reload();
     });
   }
 
