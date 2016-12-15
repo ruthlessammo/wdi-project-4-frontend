@@ -6,9 +6,10 @@
     <h6>Email: {{ usersShow.user.email }}</h6>
     <h6>Bio: {{ usersShow.user.bio }}</h6>
     <div ng-show="usersShow.checkUser()">
-      <a ng-show="usersShow.isLoggedIn()" ui-sref="usersEdit({ id: usersShow.user.id })" class=" button likeBtn">Edit</a>
-      <button class="likeBtn" ng-show="usersShow.isLoggedIn()" ng-click="usersShow.delete()">Delete</button>
+      <a ng-show="usersShow.isLoggedIn()" ui-sref="usersEdit({ id: usersShow.user.id })" class=" button likeBtn u-full-width">Edit</a>
+      <button class="likeBtn u-full-width" ng-show="usersShow.isLoggedIn()" ng-click="usersShow.delete()">Delete</button>
     </div>
+    <button ui-sref="usersIndex" class="u-full-width" style="background-color:green">Back</button>
   </div>
 
   <div class="four columns">
