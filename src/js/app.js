@@ -1,5 +1,5 @@
 angular.module('finalProject', ['ngResource', 'ui.router', 'satellizer'])
-.constant('API_URL', window.location.hostname === 'localhost' ? 'http://localhost:3000/api' : '//ruthlessmuzic.herokuapp.com/api')
+.constant('API_URL', window.location.hostname === 'localhost' ? 'http://localhost:3000/api' : '//ruthlessmuzic-api.herokuapp.com/api')
   .config(Auth)
   .config(WhitelistSrc);
 
